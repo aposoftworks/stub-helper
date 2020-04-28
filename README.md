@@ -1,4 +1,4 @@
-# Laravel Utilities
+# Stub Helper
 
 [![Latest Stable Version](https://poser.pugx.org/aposoftworks/stub-helper/version)](https://packagist.org/packages/aposoftworks/stub-helper) [![Total Downloads](https://poser.pugx.org/aposoftworks/stub-helper/downloads)](https://packagist.org/packages/aposoftworks/stub-helper) [![License](https://poser.pugx.org/aposoftworks/stub-helper/license)](https://packagist.org/packages/aposoftworks/stub-helper) [![Support](https://img.shields.io/badge/Patreon-Support-orange.svg?logo=Patreon)](https://www.patreon.com/rafaelcorrea)
 
@@ -26,7 +26,9 @@ $stub->setFile($file);
 $stub->addVariables(["className" => "AwesomeClass", "path" => "App\Classes"]);
 //Here you can get your file so you can save it
 $result = $stub->print();
-file_set_contents("./path/to/your/file.stub", $result);
+file_put_contents("./path/to/your/file.stub", $result);
+//Or just pass the path to save your file
+$stub->saveTo("./path/to/your/file.stub");
 
 ```
 

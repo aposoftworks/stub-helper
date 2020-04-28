@@ -69,6 +69,15 @@ interface StubHelperContract {
 
 	public function print (bool $clear = false) : string;
 
+	/**
+	 * Save all the variables into the file
+	 *
+	 * @param string $path The path that is going to be used to save the file
+	 * @param bool $clear (optional) Clear all configured data
+	 */
+
+	public function saveTo (string $path, bool $clear = false) : void;
+
 	//-------------------------------------------------
     // General methods
 	//-------------------------------------------------

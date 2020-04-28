@@ -66,7 +66,21 @@ abstract class StubHelperBase implements StubHelperContract {
 	//-------------------------------------------------
 
 	public function print (bool $clear = false) : string {
-		return StubHelperBase::printIntoFile($this->filecontent, $this->variables);
+		$file = StubHelperBase::printIntoFile($this->filecontent, $this->variables);
+
+		//Check if clear is necessary
+		if ($clear) $this->clear();
+
+		//Response
+		return $file;
+	}
+
+	public function saveTo (string $path, bool $clear = false) : void {
+		$file = StubHelperBase::printIntoFile($this->filecontent, $this->variables);
+		file_put_contents($path, $file);
+
+		//Check if clear is necessary
+		if ($clear) $this->clear();
 	}
 
 	//-------------------------------------------------

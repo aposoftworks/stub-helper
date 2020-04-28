@@ -1,0 +1,24 @@
+{
+    "name": "aposoftworks/stub-helper",
+    "description": "A class to help you create, manage and populate stubs",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Rafael",
+            "email": "rafael.chaves98@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Aposoftworks\\StubHelper\\":"src/"
+        }
+    },
+    "require": {
+        "php": "^7.2.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    }
+}

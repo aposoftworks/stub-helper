@@ -66,7 +66,7 @@ abstract class StubHelperBase implements StubHelperContract {
 	//-------------------------------------------------
 
 	public function print (bool $clear = false) : string {
-		$file = StubHelperBase::printIntoFile($this->filecontent, $this->variables);
+		$file = static::printIntoFile($this->filecontent, $this->variables);
 
 		//Check if clear is necessary
 		if ($clear) $this->clear();
@@ -76,7 +76,16 @@ abstract class StubHelperBase implements StubHelperContract {
 	}
 
 	public function saveTo (string $path, bool $clear = false) : void {
-		$file = StubHelperBase::printIntoFile($this->filecontent, $this->variables);
+		//Check if the path exists
+        $parts = explode('/', $path);
+        $file = array_pop($parts);
+        $dir = '';
+        foreach($parts as $part) {
+            if(!is_dir($dir .= "/$part")) mkdir($dir);
+		}
+
+		//Save the file
+		$file = static::printIntoFile($this->filecontent, $this->variables);
 		file_put_contents($path, $file);
 
 		//Check if clear is necessary
@@ -88,7 +97,7 @@ abstract class StubHelperBase implements StubHelperContract {
 	//-------------------------------------------------
 
 	public static function generate (string $file, array $variables) : string {
-		return StubHelperBase::printIntoFile($file, $variables);
+		return static::printIntoFile($file, $variables);
 	}
 
 	public function clear () : void {

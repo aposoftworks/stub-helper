@@ -24,8 +24,6 @@ class StubHelper extends StubHelperBase {
             $variable = preg_replace("/({{|}})/m", "", $requiredfields[$i]);
             //Trim
             $variable = trim($variable);
-            //Remove variable identifier
-            $variable = preg_replace("/^./", "", $variable);
 
             if (isset($variables[$variable])) {
                 $result = preg_replace('/{{\s*'.$variable.'\s*}}/m', $variables[$variable], $result);
